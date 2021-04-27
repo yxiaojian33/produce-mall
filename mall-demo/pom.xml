@@ -13,7 +13,7 @@
 
     <parent>
         <groupId>com.xiaojian.mall</groupId>
-        <artifactId>mall-swarm</artifactId>
+        <artifactId>produce-mall</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <dependencies>
