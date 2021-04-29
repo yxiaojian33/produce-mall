@@ -20,8 +20,8 @@ import java.util.List;
  * Created by xiaojian on 2018/6/19.
  */
 @Controller
-@Api(tags = "EsProductController", description = "搜索商品管理")
-@RequestMapping("/esProduct")
+@Api(tags = "EsProduc/esProducttController", description = "搜索商品管理")
+@RequestMapping("")
 public class EsProductController {
     @Autowired
     private EsProductService esProductService;
