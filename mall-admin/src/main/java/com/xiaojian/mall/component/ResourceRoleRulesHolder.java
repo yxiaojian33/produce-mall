@@ -1,6 +1,6 @@
 package com.xiaojian.mall.component;
 
-import com.xiaojian.mall.service.UmsResourceService;
+import com.xiaojian.mall.service.ums.UmsResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

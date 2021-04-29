@@ -4,7 +4,7 @@ package com.xiaojian.mall.controller;
 import com.xiaojian.mall.common.api.CommonResult;
 import com.xiaojian.mall.dto.OssCallbackResult;
 import com.xiaojian.mall.dto.OssPolicyResult;
-import com.xiaojian.mall.service.impl.OssServiceImpl;
+import com.xiaojian.mall.service.OssServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
