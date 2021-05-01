@@ -2,7 +2,7 @@ package com.xiaojian.mall.service.sms.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.xiaojian.mall.dao.sms.SmsFlashPromotionProductRelationDao;
-import com.xiaojian.mall.dto.SmsFlashPromotionProduct;
+import com.xiaojian.mall.dto.sms.SmsFlashPromotionProduct;
 import com.xiaojian.mall.mapper.SmsFlashPromotionProductRelationMapper;
 import com.xiaojian.mall.model.SmsFlashPromotionProductRelation;
 import com.xiaojian.mall.model.SmsFlashPromotionProductRelationExample;

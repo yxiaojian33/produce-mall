@@ -1,6 +1,6 @@
 package com.xiaojian.mall.service.ums;
 
-import com.xiaojian.mall.dto.UmsMenuNode;
+import com.xiaojian.mall.dto.ums.UmsMenuNode;
 import com.xiaojian.mall.model.UmsMenu;
 
 import java.util.List;

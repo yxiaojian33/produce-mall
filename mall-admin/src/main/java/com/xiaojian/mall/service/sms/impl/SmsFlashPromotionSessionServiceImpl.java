@@ -1,6 +1,6 @@
 package com.xiaojian.mall.service.sms.impl;
 
-import com.xiaojian.mall.dto.SmsFlashPromotionSessionDetail;
+import com.xiaojian.mall.dto.sms.SmsFlashPromotionSessionDetail;
 import com.xiaojian.mall.mapper.SmsFlashPromotionSessionMapper;
 import com.xiaojian.mall.model.SmsFlashPromotionSession;
 import com.xiaojian.mall.model.SmsFlashPromotionSessionExample;

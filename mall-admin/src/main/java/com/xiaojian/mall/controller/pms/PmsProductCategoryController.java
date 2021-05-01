@@ -2,8 +2,8 @@ package com.xiaojian.mall.controller.pms;
 
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.api.CommonResult;
-import com.xiaojian.mall.dto.PmsProductCategoryParam;
-import com.xiaojian.mall.dto.PmsProductCategoryWithChildrenItem;
+import com.xiaojian.mall.dto.pms.PmsProductCategoryParam;
+import com.xiaojian.mall.dto.pms.PmsProductCategoryWithChildrenItem;
 import com.xiaojian.mall.model.PmsProductCategory;
 import com.xiaojian.mall.service.pms.PmsProductCategoryService;
 import io.swagger.annotations.Api;

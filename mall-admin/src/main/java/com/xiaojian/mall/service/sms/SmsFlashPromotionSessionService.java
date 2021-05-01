@@ -1,6 +1,6 @@
 package com.xiaojian.mall.service.sms;
 
-import com.xiaojian.mall.dto.SmsFlashPromotionSessionDetail;
+import com.xiaojian.mall.dto.sms.SmsFlashPromotionSessionDetail;
 import com.xiaojian.mall.model.SmsFlashPromotionSession;
 
 import java.util.List;

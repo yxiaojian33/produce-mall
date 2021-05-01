@@ -1,8 +1,11 @@
 package com.xiaojian.mall.controller.oms;
 
+import cn.hutool.core.convert.Convert;
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.api.CommonResult;
-import com.xiaojian.mall.dto.*;
+import com.xiaojian.mall.common.utils.DateUtils;
+import com.xiaojian.mall.config.StaticConfig;
+import com.xiaojian.mall.dto.oms.*;
 import com.xiaojian.mall.model.OmsOrder;
 import com.xiaojian.mall.service.oms.OmsOrderService;
 import io.swagger.annotations.Api;
@@ -11,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -108,4 +113,21 @@ public class OmsOrderController {
         }
         return CommonResult.failed();
     }
+
+    @ApiOperation("获取指定时间内订单情况")
+    @RequestMapping(value = "/between", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult between(@RequestParam("start") String start,
+                                @RequestParam("end") String end) {
+        Date s = Convert.toDate(start);
+        Date e = Convert.toDate(end);
+        e = DateUtils.getLastTimeCurrentDate(e);
+        if(e.after(DateUtils.getOffsetDays(s , StaticConfig.MAX_DIFF_DAY))){
+            return CommonResult.failed("查询时间间隔应不超过"+StaticConfig.MAX_DIFF_DAY+"天");
+        }
+        List<OrderDateRecord> recordBetweenDate = orderService.getRecordBetweenDate(s, e);
+        return CommonResult.success(recordBetweenDate);
+    }
+
+
 }

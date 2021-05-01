@@ -2,9 +2,9 @@ package com.xiaojian.mall.controller.oms;
 
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.api.CommonResult;
-import com.xiaojian.mall.dto.OmsOrderReturnApplyResult;
-import com.xiaojian.mall.dto.OmsReturnApplyQueryParam;
-import com.xiaojian.mall.dto.OmsUpdateStatusParam;
+import com.xiaojian.mall.dto.oms.OmsOrderReturnApplyResult;
+import com.xiaojian.mall.dto.oms.OmsReturnApplyQueryParam;
+import com.xiaojian.mall.dto.oms.OmsUpdateStatusParam;
 import com.xiaojian.mall.model.OmsOrderReturnApply;
 import com.xiaojian.mall.service.oms.OmsOrderReturnApplyService;
 import io.swagger.annotations.Api;

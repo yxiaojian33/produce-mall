@@ -1,4 +1,4 @@
-package com.xiaojian.mall.dto;
+package com.xiaojian.mall.dto.oms;
 
 import com.xiaojian.mall.model.OmsOrder;
 import com.xiaojian.mall.model.OmsOrderItem;

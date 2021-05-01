@@ -1,6 +1,6 @@
 package com.xiaojian.mall.service.pms;
 
-import com.xiaojian.mall.dto.PmsBrandParam;
+import com.xiaojian.mall.dto.pms.PmsBrandParam;
 import com.xiaojian.mall.model.PmsBrand;
 import org.springframework.transaction.annotation.Transactional;
 

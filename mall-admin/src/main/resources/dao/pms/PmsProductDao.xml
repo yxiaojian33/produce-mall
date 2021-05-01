@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiaojian.mall.dao.pms.PmsProductDao">
-    <resultMap id="updateInfoMap" type="com.xiaojian.mall.dto.PmsProductResult" extends="com.xiaojian.mall.mapper.PmsProductMapper.ResultMapWithBLOBs">
+    <resultMap id="updateInfoMap" type="com.xiaojian.mall.dto.pms.PmsProductResult" extends="com.xiaojian.mall.mapper.PmsProductMapper.ResultMapWithBLOBs">
         <result column="cateParentId" jdbcType="BIGINT" property="cateParentId" />
         <collection property="productLadderList" columnPrefix="ladder_" resultMap="com.xiaojian.mall.mapper.PmsProductLadderMapper.BaseResultMap">
         </collection>

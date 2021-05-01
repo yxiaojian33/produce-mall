@@ -1,4 +1,4 @@
-package com.xiaojian.mall.dto;
+package com.xiaojian.mall.dto.ums;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

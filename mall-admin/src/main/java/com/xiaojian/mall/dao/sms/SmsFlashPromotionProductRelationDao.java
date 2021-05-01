@@ -1,6 +1,6 @@
 package com.xiaojian.mall.dao.sms;
 
-import com.xiaojian.mall.dto.SmsFlashPromotionProduct;
+import com.xiaojian.mall.dto.sms.SmsFlashPromotionProduct;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.xiaojian.mall.dao.sms;
 
-import com.xiaojian.mall.dto.SmsCouponParam;
+import com.xiaojian.mall.dto.sms.SmsCouponParam;
 import org.apache.ibatis.annotations.Param;
 
 /**

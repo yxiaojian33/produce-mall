@@ -1,6 +1,6 @@
 package com.xiaojian.mall.dao.pms;
 
-import com.xiaojian.mall.dto.PmsProductResult;
+import com.xiaojian.mall.dto.pms.PmsProductResult;
 import org.apache.ibatis.annotations.Param;
 
 

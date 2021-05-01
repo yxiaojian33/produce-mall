@@ -1,6 +1,6 @@
 package com.xiaojian.mall.service.sms;
 
-import com.xiaojian.mall.dto.SmsFlashPromotionProduct;
+import com.xiaojian.mall.dto.sms.SmsFlashPromotionProduct;
 import com.xiaojian.mall.model.SmsFlashPromotionProductRelation;
 import org.springframework.transaction.annotation.Transactional;
 

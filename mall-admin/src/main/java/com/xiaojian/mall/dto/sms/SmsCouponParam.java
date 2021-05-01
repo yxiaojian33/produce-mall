@@ -1,4 +1,4 @@
-package com.xiaojian.mall.dto;
+package com.xiaojian.mall.dto.sms;
 
 import com.xiaojian.mall.model.SmsCoupon;
 import com.xiaojian.mall.model.SmsCouponProductCategoryRelation;

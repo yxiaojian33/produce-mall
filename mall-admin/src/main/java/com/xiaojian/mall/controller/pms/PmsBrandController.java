@@ -2,7 +2,7 @@ package com.xiaojian.mall.controller.pms;
 
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.api.CommonResult;
-import com.xiaojian.mall.dto.PmsBrandParam;
+import com.xiaojian.mall.dto.pms.PmsBrandParam;
 import com.xiaojian.mall.model.PmsBrand;
 import com.xiaojian.mall.service.pms.PmsBrandService;
 import io.swagger.annotations.Api;

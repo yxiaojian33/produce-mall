@@ -1,6 +1,6 @@
 package com.xiaojian.mall.service.sms;
 
-import com.xiaojian.mall.dto.SmsCouponParam;
+import com.xiaojian.mall.dto.sms.SmsCouponParam;
 import com.xiaojian.mall.model.SmsCoupon;
 import org.springframework.transaction.annotation.Transactional;
 

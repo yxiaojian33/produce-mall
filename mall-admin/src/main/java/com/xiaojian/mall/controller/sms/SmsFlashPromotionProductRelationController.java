@@ -2,7 +2,7 @@ package com.xiaojian.mall.controller.sms;
 
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.api.CommonResult;
-import com.xiaojian.mall.dto.SmsFlashPromotionProduct;
+import com.xiaojian.mall.dto.sms.SmsFlashPromotionProduct;
 import com.xiaojian.mall.model.SmsFlashPromotionProductRelation;
 import com.xiaojian.mall.service.sms.SmsFlashPromotionProductRelationService;
 import io.swagger.annotations.Api;

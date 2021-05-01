@@ -3,7 +3,7 @@ package com.xiaojian.mall.service.oms.impl;
 import com.github.pagehelper.PageHelper;
 import com.xiaojian.mall.dao.oms.OmsOrderDao;
 import com.xiaojian.mall.dao.oms.OmsOrderOperateHistoryDao;
-import com.xiaojian.mall.dto.*;
+import com.xiaojian.mall.dto.oms.*;
 import com.xiaojian.mall.mapper.OmsOrderMapper;
 import com.xiaojian.mall.mapper.OmsOrderOperateHistoryMapper;
 import com.xiaojian.mall.model.OmsOrder;
@@ -148,5 +148,11 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         history.setNote("修改备注信息："+note);
         orderOperateHistoryMapper.insert(history);
         return count;
+    }
+
+
+    @Override
+    public List<OrderDateRecord> getRecordBetweenDate(Date start, Date end) {
+        return orderDao.getRecordBetweenDate(start, end);
     }
 }

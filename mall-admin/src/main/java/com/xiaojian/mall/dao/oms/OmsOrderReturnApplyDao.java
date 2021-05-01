@@ -1,7 +1,7 @@
 package com.xiaojian.mall.dao.oms;
 
-import com.xiaojian.mall.dto.OmsOrderReturnApplyResult;
-import com.xiaojian.mall.dto.OmsReturnApplyQueryParam;
+import com.xiaojian.mall.dto.oms.OmsOrderReturnApplyResult;
+import com.xiaojian.mall.dto.oms.OmsReturnApplyQueryParam;
 import com.xiaojian.mall.model.OmsOrderReturnApply;
 import org.apache.ibatis.annotations.Param;
 

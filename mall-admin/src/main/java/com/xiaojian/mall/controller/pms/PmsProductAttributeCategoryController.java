@@ -2,7 +2,7 @@ package com.xiaojian.mall.controller.pms;
 
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.api.CommonResult;
-import com.xiaojian.mall.dto.PmsProductAttributeCategoryItem;
+import com.xiaojian.mall.dto.pms.PmsProductAttributeCategoryItem;
 import com.xiaojian.mall.model.PmsProductAttributeCategory;
 import com.xiaojian.mall.service.pms.PmsProductAttributeCategoryService;
 import io.swagger.annotations.Api;

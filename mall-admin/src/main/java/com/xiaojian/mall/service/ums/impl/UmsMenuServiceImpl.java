@@ -1,7 +1,7 @@
 package com.xiaojian.mall.service.ums.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.xiaojian.mall.dto.UmsMenuNode;
+import com.xiaojian.mall.dto.ums.UmsMenuNode;
 import com.xiaojian.mall.mapper.UmsMenuMapper;
 import com.xiaojian.mall.service.ums.UmsMenuService;
 import com.xiaojian.mall.model.UmsMenu;

@@ -1,4 +1,4 @@
-package com.xiaojian.mall.dto;
+package com.xiaojian.mall.dto.sms;
 
 import com.xiaojian.mall.model.SmsFlashPromotionSession;
 import io.swagger.annotations.ApiModelProperty;

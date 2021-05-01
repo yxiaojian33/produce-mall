@@ -1,6 +1,6 @@
 package com.xiaojian.mall.dao.pms;
 
-import com.xiaojian.mall.dto.PmsProductAttributeCategoryItem;
+import com.xiaojian.mall.dto.pms.PmsProductAttributeCategoryItem;
 
 import java.util.List;
 

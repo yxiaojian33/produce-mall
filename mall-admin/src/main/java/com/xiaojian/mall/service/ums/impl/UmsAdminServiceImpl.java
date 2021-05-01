@@ -11,7 +11,7 @@ import com.xiaojian.mall.common.constant.AuthConstant;
 import com.xiaojian.mall.common.domain.UserDto;
 import com.xiaojian.mall.common.exception.Asserts;
 import com.xiaojian.mall.dao.ums.UmsAdminRoleRelationDao;
-import com.xiaojian.mall.dto.UmsAdminParam;
+import com.xiaojian.mall.dto.ums.UmsAdminParam;
 import com.xiaojian.mall.dto.UpdateAdminPasswordParam;
 import com.xiaojian.mall.mapper.UmsAdminLoginLogMapper;
 import com.xiaojian.mall.mapper.UmsAdminMapper;

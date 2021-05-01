@@ -1,9 +1,10 @@
 package com.xiaojian.mall.service.oms;
 
-import com.xiaojian.mall.dto.*;
+import com.xiaojian.mall.dto.oms.*;
 import com.xiaojian.mall.model.OmsOrder;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -54,4 +55,11 @@ public interface OmsOrderService {
      */
     @Transactional
     int updateNote(Long id, String note, Integer status);
+
+    /**
+     * 统计时间段内订单情况
+     */
+    @Transactional
+    List<OrderDateRecord> getRecordBetweenDate(Date start ,Date end);
+
 }

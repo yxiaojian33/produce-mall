@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiaojian.mall.dao.pms.PmsProductAttributeCategoryDao">
-    <resultMap id="getListWithAttrMap" type="com.xiaojian.mall.dto.PmsProductAttributeCategoryItem" extends="com.xiaojian.mall.mapper.PmsProductAttributeCategoryMapper.BaseResultMap">
+    <resultMap id="getListWithAttrMap" type="com.xiaojian.mall.dto.pms.PmsProductAttributeCategoryItem" extends="com.xiaojian.mall.mapper.PmsProductAttributeCategoryMapper.BaseResultMap">
         <collection property="productAttributeList" columnPrefix="attr_" resultMap="com.xiaojian.mall.mapper.PmsProductAttributeMapper.BaseResultMap">
         </collection>
     </resultMap>

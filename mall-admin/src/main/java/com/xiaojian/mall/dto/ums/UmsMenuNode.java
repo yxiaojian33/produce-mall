@@ -1,4 +1,4 @@
-package com.xiaojian.mall.dto;
+package com.xiaojian.mall.dto.ums;
 
 import com.xiaojian.mall.model.UmsMenu;
 import io.swagger.annotations.ApiModelProperty;

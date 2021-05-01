@@ -1,8 +1,8 @@
 package com.xiaojian.mall.service.pms;
 
-import com.xiaojian.mall.dto.PmsProductParam;
-import com.xiaojian.mall.dto.PmsProductQueryParam;
-import com.xiaojian.mall.dto.PmsProductResult;
+import com.xiaojian.mall.dto.pms.PmsProductParam;
+import com.xiaojian.mall.dto.pms.PmsProductQueryParam;
+import com.xiaojian.mall.dto.pms.PmsProductResult;
 import com.xiaojian.mall.model.PmsProduct;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;

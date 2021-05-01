@@ -2,7 +2,7 @@ package com.xiaojian.mall.service.pms.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.xiaojian.mall.dao.pms.PmsProductAttributeDao;
-import com.xiaojian.mall.dto.PmsProductAttributeParam;
+import com.xiaojian.mall.dto.pms.PmsProductAttributeParam;
 import com.xiaojian.mall.dto.ProductAttrInfo;
 import com.xiaojian.mall.mapper.PmsProductAttributeCategoryMapper;
 import com.xiaojian.mall.mapper.PmsProductAttributeMapper;

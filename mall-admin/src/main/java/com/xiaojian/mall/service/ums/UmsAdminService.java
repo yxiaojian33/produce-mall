@@ -2,7 +2,7 @@ package com.xiaojian.mall.service.ums;
 
 import com.xiaojian.mall.common.api.CommonResult;
 import com.xiaojian.mall.common.domain.UserDto;
-import com.xiaojian.mall.dto.UmsAdminParam;
+import com.xiaojian.mall.dto.ums.UmsAdminParam;
 import com.xiaojian.mall.dto.UpdateAdminPasswordParam;
 import com.xiaojian.mall.model.UmsAdmin;
 import com.xiaojian.mall.model.UmsResource;

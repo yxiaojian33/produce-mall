@@ -1,4 +1,4 @@
-package com.xiaojian.mall.dto;
+package com.xiaojian.mall.dto.pms;
 
 import com.xiaojian.mall.validator.FlagValidator;
 import io.swagger.annotations.ApiModelProperty;

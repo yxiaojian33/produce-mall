@@ -1,7 +1,7 @@
 package com.xiaojian.mall.service.pms;
 
-import com.xiaojian.mall.dto.PmsProductCategoryParam;
-import com.xiaojian.mall.dto.PmsProductCategoryWithChildrenItem;
+import com.xiaojian.mall.dto.pms.PmsProductCategoryParam;
+import com.xiaojian.mall.dto.pms.PmsProductCategoryWithChildrenItem;
 import com.xiaojian.mall.model.PmsProductCategory;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,7 +1,7 @@
 package com.xiaojian.mall.service.pms.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.xiaojian.mall.dto.PmsBrandParam;
+import com.xiaojian.mall.dto.pms.PmsBrandParam;
 import com.xiaojian.mall.mapper.PmsBrandMapper;
 import com.xiaojian.mall.mapper.PmsProductMapper;
 import com.xiaojian.mall.model.PmsBrand;

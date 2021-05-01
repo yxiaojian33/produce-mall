@@ -4,7 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.xiaojian.mall.dao.sms.SmsCouponDao;
 import com.xiaojian.mall.dao.sms.SmsCouponProductCategoryRelationDao;
 import com.xiaojian.mall.dao.sms.SmsCouponProductRelationDao;
-import com.xiaojian.mall.dto.SmsCouponParam;
+import com.xiaojian.mall.dto.sms.SmsCouponParam;
 import com.xiaojian.mall.mapper.SmsCouponMapper;
 import com.xiaojian.mall.mapper.SmsCouponProductCategoryRelationMapper;
 import com.xiaojian.mall.mapper.SmsCouponProductRelationMapper;

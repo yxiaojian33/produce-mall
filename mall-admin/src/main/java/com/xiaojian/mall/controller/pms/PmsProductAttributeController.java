@@ -2,7 +2,7 @@ package com.xiaojian.mall.controller.pms;
 
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.api.CommonResult;
-import com.xiaojian.mall.dto.PmsProductAttributeParam;
+import com.xiaojian.mall.dto.pms.PmsProductAttributeParam;
 import com.xiaojian.mall.dto.ProductAttrInfo;
 import com.xiaojian.mall.model.PmsProductAttribute;
 import com.xiaojian.mall.service.pms.PmsProductAttributeService;

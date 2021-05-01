@@ -2,7 +2,7 @@ package com.xiaojian.mall.controller.ums;
 
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.api.CommonResult;
-import com.xiaojian.mall.dto.UmsMenuNode;
+import com.xiaojian.mall.dto.ums.UmsMenuNode;
 import com.xiaojian.mall.model.UmsMenu;
 import com.xiaojian.mall.service.ums.UmsMenuService;
 import io.swagger.annotations.Api;
