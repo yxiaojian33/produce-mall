@@ -10,7 +10,18 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 public class OrderDateRecord {
+    /**
+     * 日期
+     */
     private String date;
+
+    /**
+     * 订单数量
+     */
     private Integer orderCount;
+
+    /**
+     * 订单金额
+     */
     private BigDecimal  orderAmount;
 }

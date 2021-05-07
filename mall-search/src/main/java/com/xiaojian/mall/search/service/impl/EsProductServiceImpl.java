@@ -161,7 +161,7 @@ public class EsProductServiceImpl implements EsProductService {
         LOGGER.info("DSL:{}", searchQuery.getQuery().toString());
         SearchHits<EsProduct> searchHits = elasticsearchRestTemplate.search(searchQuery, EsProduct.class);
         if(searchHits.getTotalHits()<=0){
-            return new PageImpl<>(null,pageable,0);
+            return new PageImpl<>(new ArrayList<>(),pageable,0);
         }
         List<EsProduct> searchProductList = searchHits.stream().map(SearchHit::getContent).collect(Collectors.toList());
         return new PageImpl<>(searchProductList,pageable,searchHits.getTotalHits());
@@ -223,9 +223,9 @@ public class EsProductServiceImpl implements EsProductService {
             builder.withQuery(QueryBuilders.multiMatchQuery(keyword,"name","subTitle","keywords"));
         }
         //聚合搜索品牌名称
-        builder.addAggregation(AggregationBuilders.terms("brandNames").field("brandName"));
+        builder.addAggregation(AggregationBuilders.terms("brandNames").field("brandName.keyword"));
         //集合搜索分类名称
-        builder.addAggregation(AggregationBuilders.terms("productCategoryNames").field("productCategoryName"));
+        builder.addAggregation(AggregationBuilders.terms("productCategoryNames").field("productCategoryName.keyword"));
         //聚合搜索商品属性，去除type=1的属性
         AbstractAggregationBuilder aggregationBuilder = AggregationBuilders.nested("allAttrValues","attrValueList")
                 .subAggregation(AggregationBuilders.filter("productAttrs",QueryBuilders.termQuery("attrValueList.type",1))

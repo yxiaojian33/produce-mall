@@ -102,6 +102,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 //            updateLoginTimeByUsername(username);
             insertLoginLog(username);
         }
+
         return restResult;
     }
 

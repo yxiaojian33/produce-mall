@@ -38,8 +38,7 @@ public class UmsMemberController {
     @ApiOperation("会员登录")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult login(@RequestParam String username,
-                              @RequestParam String password) {
+    public CommonResult login(@RequestParam String username, @RequestParam String password) {
         return memberService.login(username, password);
     }
 
@@ -48,6 +47,7 @@ public class UmsMemberController {
     @ResponseBody
     public CommonResult info() {
         UmsMember member = memberService.getCurrentMember();
+        member.setPassword(null);//隐藏密码
         return CommonResult.success(member);
     }
 

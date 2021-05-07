@@ -1,5 +1,6 @@
 package com.xiaojian.mall.portal.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.xiaojian.mall.mapper.*;
 import com.xiaojian.mall.model.*;
@@ -11,6 +12,7 @@ import com.xiaojian.mall.portal.domain.HomeContentResult;
 import com.xiaojian.mall.portal.domain.HomeFlashPromotion;
 import com.xiaojian.mall.portal.service.HomeService;
 import com.xiaojian.mall.portal.util.DateUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -65,6 +67,8 @@ public class HomeServiceImpl implements HomeService {
         example.createCriteria()
                 .andDeleteStatusEqualTo(0)
                 .andPublishStatusEqualTo(1);
+//        List<PmsProduct> pmsProducts = productMapper.selectByExample(example);
+//        Page ps =(Page)  pmsProducts;
         return productMapper.selectByExample(example);
     }
 
