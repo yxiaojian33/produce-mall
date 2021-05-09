@@ -62,6 +62,7 @@ secure:
       - "/webjars/springfox-swagger-ui/**"
       - "/actuator/**"
       - "/mall-auth/oauth/token"
+      - "/mall-auth/sms/sendCode"
       - "/mall-auth/rsa/publicKey"
       - "/mall-search/**"
       - "/mall-portal/sso/login"

@@ -80,7 +80,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
         example.or(example.createCriteria().andPhoneEqualTo(telephone));
         List<UmsMember> umsMembers = memberMapper.selectByExample(example);
         if (!CollectionUtils.isEmpty(umsMembers)) {
-            Asserts.fail("该用户已经存在");
+            Asserts.fail("该用户名已经存在或手机号已注册");
         }
         //没有该用户进行添加操作
         UmsMember umsMember = new UmsMember();
@@ -108,6 +108,10 @@ public class UmsMemberServiceImpl implements UmsMemberService {
             sb.append(random.nextInt(10));
         }
         memberCacheService.setAuthCode(telephone,sb.toString());
+        HashMap<String,String> map =new HashMap<>();
+        map.put("telphone" ,telephone);
+        map.put("code" ,sb.toString());
+        authService.sendCode(map);//发送验证码
         return sb.toString();
     }
 

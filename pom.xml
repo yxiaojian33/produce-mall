@@ -51,6 +51,7 @@
         <admin-starter-server.version>2.2.3</admin-starter-server.version>
         <minio.version>7.1.0</minio.version>
         <knife4j.version>2.0.4</knife4j.version>
+        <tencentcloudapi.version>3.1.257</tencentcloudapi.version>
         <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
         <mall-common.version>1.0-SNAPSHOT</mall-common.version>
         <mall-mbg.version>1.0-SNAPSHOT</mall-mbg.version>
@@ -192,6 +193,13 @@
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${aliyun-oss.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.tencentcloudapi</groupId>
+                <artifactId>tencentcloud-sdk-java</artifactId>
+                <version>${tencentcloudapi.version}</version>
+            </dependency>
+
             <!--集成logstash-->
             <dependency>
                 <groupId>net.logstash.logback</groupId>
