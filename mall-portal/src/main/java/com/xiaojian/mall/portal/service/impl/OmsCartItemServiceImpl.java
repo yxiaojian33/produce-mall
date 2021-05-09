@@ -1,6 +1,7 @@
 package com.xiaojian.mall.portal.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
+import com.xiaojian.mall.common.exception.Asserts;
 import com.xiaojian.mall.mapper.OmsCartItemMapper;
 import com.xiaojian.mall.mapper.PmsProductMapper;
 import com.xiaojian.mall.model.OmsCartItem;
@@ -42,7 +43,7 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
     private UmsMemberService memberService;
 
     @Override
-    public int add(OmsCartItem cartItem) {
+    public Long add(OmsCartItem cartItem) {
         int count;
         PmsProduct pmsProduct = productMapper.selectByPrimaryKey(cartItem.getProductId());
         cartItem.setFiledByProduct(pmsProduct);
@@ -50,16 +51,17 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
         cartItem.setMemberId(currentMember.getId());
         cartItem.setMemberNickname(currentMember.getNickname());
         cartItem.setDeleteStatus(0);
-        OmsCartItem existCartItem = getCartItem(cartItem);
-        if (existCartItem == null) {
+        cartItem = getCartItem(cartItem);
+        if (cartItem == null) {
             cartItem.setCreateDate(new Date());
             count = cartItemMapper.insert(cartItem);
         } else {
             cartItem.setModifyDate(new Date());
-            existCartItem.setQuantity(existCartItem.getQuantity() + cartItem.getQuantity());
-            count = cartItemMapper.updateByPrimaryKey(existCartItem);
+            cartItem.setQuantity(cartItem.getQuantity() + cartItem.getQuantity());
+            count = cartItemMapper.updateByPrimaryKey(cartItem);
         }
-        return count;
+        if(count <= 0) Asserts.fail("添加失败");
+        return cartItem.getId();
     }
 
     /**
@@ -101,14 +103,14 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
 
     @Override
     public int updateQuantity(Long id, Long memberId, Integer quantity) {
+        if(quantity <= 0){
+            return cartItemMapper.deleteByPrimaryKey(id);
+        }
         OmsCartItem cartItem = new OmsCartItem();
         cartItem.setQuantity(quantity);
         OmsCartItemExample example = new OmsCartItemExample();
         example.createCriteria().andDeleteStatusEqualTo(0)
-                .andProductIdEqualTo(id).andMemberIdEqualTo(memberId);
-        if(quantity.equals(0)){
-            return cartItemMapper.deleteByExample(example);
-        }
+                .andIdEqualTo(id).andMemberIdEqualTo(memberId);
         return cartItemMapper.updateByExampleSelective(cartItem, example);
     }
 

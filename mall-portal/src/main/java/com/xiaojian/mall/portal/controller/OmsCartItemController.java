@@ -31,11 +31,8 @@ public class OmsCartItemController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult add(@RequestBody OmsCartItem cartItem) {
-        int count = cartItemService.add(cartItem);
-        if (count > 0) {
-            return CommonResult.success(count);
-        }
-        return CommonResult.failed();
+        long count = cartItemService.add(cartItem);
+        return CommonResult.success(count);
     }
 
     @ApiOperation("获取某个会员的购物车列表")
