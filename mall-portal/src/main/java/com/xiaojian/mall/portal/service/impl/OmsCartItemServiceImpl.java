@@ -51,17 +51,19 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
         cartItem.setMemberId(currentMember.getId());
         cartItem.setMemberNickname(currentMember.getNickname());
         cartItem.setDeleteStatus(0);
-        cartItem = getCartItem(cartItem);
-        if (cartItem == null) {
+        OmsCartItem existCartItem = getCartItem(cartItem);
+        if (existCartItem == null) {
             cartItem.setCreateDate(new Date());
             count = cartItemMapper.insert(cartItem);
+            if(count <= 0) Asserts.fail("添加失败");
+            return cartItem.getId();
         } else {
             cartItem.setModifyDate(new Date());
-            cartItem.setQuantity(cartItem.getQuantity() + cartItem.getQuantity());
-            count = cartItemMapper.updateByPrimaryKey(cartItem);
+            existCartItem.setQuantity(existCartItem.getQuantity() + cartItem.getQuantity());
+            count = cartItemMapper.updateByPrimaryKey(existCartItem);
+            if(count <= 0) Asserts.fail("添加失败");
         }
-        if(count <= 0) Asserts.fail("添加失败");
-        return cartItem.getId();
+        return existCartItem.getId();
     }
 
     /**
