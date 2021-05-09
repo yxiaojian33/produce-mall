@@ -2,8 +2,10 @@ package com.xiaojian.mall.portal.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
 import com.xiaojian.mall.mapper.OmsCartItemMapper;
+import com.xiaojian.mall.mapper.PmsProductMapper;
 import com.xiaojian.mall.model.OmsCartItem;
 import com.xiaojian.mall.model.OmsCartItemExample;
+import com.xiaojian.mall.model.PmsProduct;
 import com.xiaojian.mall.model.UmsMember;
 import com.xiaojian.mall.portal.dao.PortalProductDao;
 import com.xiaojian.mall.portal.domain.CartProduct;
@@ -31,6 +33,9 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
     private OmsCartItemMapper cartItemMapper;
     @Autowired
     private PortalProductDao productDao;
+
+    @Autowired
+    private PmsProductMapper productMapper;
     @Autowired
     private OmsPromotionService promotionService;
     @Autowired
@@ -39,6 +44,8 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
     @Override
     public int add(OmsCartItem cartItem) {
         int count;
+        PmsProduct pmsProduct = productMapper.selectByPrimaryKey(cartItem.getProductId());
+        cartItem.setFiledByProduct(pmsProduct);
         UmsMember currentMember =memberService.getCurrentMember();
         cartItem.setMemberId(currentMember.getId());
         cartItem.setMemberNickname(currentMember.getNickname());
@@ -98,7 +105,10 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
         cartItem.setQuantity(quantity);
         OmsCartItemExample example = new OmsCartItemExample();
         example.createCriteria().andDeleteStatusEqualTo(0)
-                .andIdEqualTo(id).andMemberIdEqualTo(memberId);
+                .andProductIdEqualTo(id).andMemberIdEqualTo(memberId);
+        if(quantity.equals(0)){
+            return cartItemMapper.deleteByExample(example);
+        }
         return cartItemMapper.updateByExampleSelective(cartItem, example);
     }
 

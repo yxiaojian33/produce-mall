@@ -200,6 +200,16 @@ public class OmsCartItem implements Serializable {
         this.productAttr = productAttr;
     }
 
+    public void setFiledByProduct(PmsProduct pmsProduct){
+        this.price = pmsProduct.getPrice();
+        this.productBrand = pmsProduct.getBrandName();
+        this.productPic = pmsProduct.getPic();
+        this.productName = pmsProduct.getName();
+        this.productCategoryId = pmsProduct.getProductCategoryId();
+        this.productSubTitle = pmsProduct.getSubTitle();
+        this.productSn = pmsProduct.getProductSn();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
