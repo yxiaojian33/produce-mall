@@ -39,8 +39,8 @@ public class OmsPortalOrderController {
     @RequestMapping(value = "/generateOrder", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult generateOrder(@RequestBody OrderParam orderParam) {
-        Map<String, Object> result = portalOrderService.generateOrder(orderParam);
-        return CommonResult.success(result, "下单成功");
+        String result = portalOrderService.generateOrder(orderParam);
+        return CommonResult.success(result);
     }
 
     @ApiOperation("用户支付成功的回调")

@@ -24,7 +24,7 @@ public interface OmsPortalOrderService {
      * 根据提交信息生成订单
      */
     @Transactional
-    Map<String, Object> generateOrder(OrderParam orderParam);
+    String generateOrder(OrderParam orderParam);
 
     /**
      * 支付成功后的回调

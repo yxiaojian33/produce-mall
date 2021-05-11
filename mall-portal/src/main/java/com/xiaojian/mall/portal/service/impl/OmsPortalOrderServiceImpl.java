@@ -2,6 +2,9 @@ package com.xiaojian.mall.portal.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.github.pagehelper.PageHelper;
 import com.xiaojian.mall.common.api.CommonPage;
 import com.xiaojian.mall.common.exception.Asserts;
@@ -70,6 +73,9 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
     @Autowired
     private CancelOrderSender cancelOrderSender;
 
+    @Autowired
+    private AlipayClient alipayClient;
+
     @Override
     public ConfirmOrderResult generateConfirmOrder(List<Long> cartIds) {
         ConfirmOrderResult result = new ConfirmOrderResult();
@@ -95,7 +101,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
     }
 
     @Override
-    public Map<String, Object> generateOrder(OrderParam orderParam) {
+    public String generateOrder(OrderParam orderParam) {
         List<OmsOrderItem> orderItemList = new ArrayList<>();
         //获取购物车及优惠信息
         UmsMember currentMember = memberService.getCurrentMember();
@@ -243,7 +249,43 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         Map<String, Object> result = new HashMap<>();
         result.put("order", order);
         result.put("orderItemList", orderItemList);
-        return result;
+
+        //设置请求参数
+        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+
+
+        //商户订单号，商户网站订单系统中唯一订单号，必填
+        String out_trade_no = order.getOrderSn();
+        //付款金额，必填
+        String total_amount = String.valueOf(order.getPayAmount());
+        //订单名称，必填
+        String subject = order.getBillContent();
+        //商品描述，可空
+        String body = "描述";
+
+        alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","
+                + "\"total_amount\":\""+ total_amount +"\","
+                + "\"subject\":\""+ subject +"\","
+                + "\"body\":\""+ body +"\","
+                + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+
+        //若想给BizContent增加其他可选请求参数，以增加自定义超时时间参数timeout_express来举例说明
+        //alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","
+        //		+ "\"total_amount\":\""+ total_amount +"\","
+        //		+ "\"subject\":\""+ subject +"\","
+        //		+ "\"body\":\""+ body +"\","
+        //		+ "\"timeout_express\":\"10m\","
+        //		+ "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+        //请求参数可查阅【电脑网站支付的API文档-alipay.trade.page.pay-请求参数】章节
+
+        //请求
+        String payPage = null;
+        try {
+            payPage = alipayClient.pageExecute(alipayRequest).getBody();
+        } catch (AlipayApiException e) {
+            Asserts.fail(e.getMessage());
+        }
+        return payPage;
     }
 
     @Override

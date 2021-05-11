@@ -47,11 +47,13 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
                     cartPromotionItem.setPromotionMessage("单品促销");
                     //商品原价-促销价
                     PmsSkuStock skuStock = getOriginalPrice(promotionProduct, item.getProductSkuId());
-                    BigDecimal originalPrice = skuStock.getPrice();
-                    //单品促销使用原价
-                    cartPromotionItem.setPrice(originalPrice);
-                    cartPromotionItem.setReduceAmount(originalPrice.subtract(skuStock.getPromotionPrice()));
-                    cartPromotionItem.setRealStock(skuStock.getStock()-skuStock.getLockStock());
+                    if(skuStock !=null){
+                        BigDecimal originalPrice = skuStock.getPrice();
+                        //单品促销使用原价
+                        cartPromotionItem.setPrice(originalPrice);
+                        cartPromotionItem.setReduceAmount(originalPrice.subtract(skuStock.getPromotionPrice()));
+                        cartPromotionItem.setRealStock(skuStock.getStock()-skuStock.getLockStock());
+                    }
                     cartPromotionItem.setIntegration(promotionProduct.getGiftPoint());
                     cartPromotionItem.setGrowth(promotionProduct.getGiftGrowth());
                     cartPromotionItemList.add(cartPromotionItem);
@@ -68,10 +70,12 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
                         cartPromotionItem.setPromotionMessage(message);
                         //商品原价-折扣*商品原价
                         PmsSkuStock skuStock = getOriginalPrice(promotionProduct,item.getProductSkuId());
-                        BigDecimal originalPrice = skuStock.getPrice();
-                        BigDecimal reduceAmount = originalPrice.subtract(ladder.getDiscount().multiply(originalPrice));
-                        cartPromotionItem.setReduceAmount(reduceAmount);
-                        cartPromotionItem.setRealStock(skuStock.getStock()-skuStock.getLockStock());
+                        if(skuStock !=null){
+                            BigDecimal originalPrice = skuStock.getPrice();
+                            BigDecimal reduceAmount = originalPrice.subtract(ladder.getDiscount().multiply(originalPrice));
+                            cartPromotionItem.setReduceAmount(reduceAmount);
+                            cartPromotionItem.setRealStock(skuStock.getStock()-skuStock.getLockStock());
+                        }
                         cartPromotionItem.setIntegration(promotionProduct.getGiftPoint());
                         cartPromotionItem.setGrowth(promotionProduct.getGiftGrowth());
                         cartPromotionItemList.add(cartPromotionItem);
@@ -91,10 +95,12 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
                         cartPromotionItem.setPromotionMessage(message);
                         //(商品原价/总价)*满减金额
                         PmsSkuStock skuStock= getOriginalPrice(promotionProduct, item.getProductSkuId());
-                        BigDecimal originalPrice = skuStock.getPrice();
-                        BigDecimal reduceAmount = originalPrice.divide(totalAmount,RoundingMode.HALF_EVEN).multiply(fullReduction.getReducePrice());
-                        cartPromotionItem.setReduceAmount(reduceAmount);
-                        cartPromotionItem.setRealStock(skuStock.getStock()-skuStock.getLockStock());
+                        if(skuStock !=null){
+                            BigDecimal originalPrice = skuStock.getPrice();
+                            BigDecimal reduceAmount = originalPrice.divide(totalAmount,RoundingMode.HALF_EVEN).multiply(fullReduction.getReducePrice());
+                            cartPromotionItem.setReduceAmount(reduceAmount);
+                            cartPromotionItem.setRealStock(skuStock.getStock()-skuStock.getLockStock());
+                        }
                         cartPromotionItem.setIntegration(promotionProduct.getGiftPoint());
                         cartPromotionItem.setGrowth(promotionProduct.getGiftGrowth());
                         cartPromotionItemList.add(cartPromotionItem);
