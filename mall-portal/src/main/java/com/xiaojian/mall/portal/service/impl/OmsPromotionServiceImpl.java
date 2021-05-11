@@ -11,6 +11,7 @@ import com.xiaojian.mall.portal.service.OmsPromotionService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -242,7 +243,9 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
             //计算出商品原价
             PromotionProduct promotionProduct = getPromotionProductById(item.getProductId(), promotionProductList);
             PmsSkuStock skuStock = getOriginalPrice(promotionProduct,item.getProductSkuId());
-            amount = amount.add(skuStock.getPrice().multiply(new BigDecimal(item.getQuantity())));
+            if(!ObjectUtils.isEmpty(skuStock)){
+                amount = amount.add(skuStock.getPrice().multiply(new BigDecimal(item.getQuantity())));
+            }
         }
         return amount;
     }
@@ -251,6 +254,7 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
      * 获取商品的原价
      */
     private PmsSkuStock getOriginalPrice(PromotionProduct promotionProduct, Long productSkuId) {
+        if(productSkuId == null) return null;
         for (PmsSkuStock skuStock : promotionProduct.getSkuStockList()) {
             if (productSkuId.equals(skuStock.getId())) {
                 return skuStock;

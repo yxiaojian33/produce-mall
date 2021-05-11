@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -85,7 +86,10 @@ public class OmsCartItemController {
     @ApiOperation("删除购物车中的某个商品")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult delete(@RequestParam("ids") List<Long> ids) {
+    public CommonResult delete(@RequestBody List<Long> ids) {
+        if(CollectionUtils.isEmpty(ids)){
+            return CommonResult.success(1);
+        }
         int count = cartItemService.delete(memberService.getCurrentMember().getId(), ids);
         if (count > 0) {
             return CommonResult.success(count);
